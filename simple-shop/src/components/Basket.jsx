@@ -6,13 +6,13 @@ function Basket(props) {
     });
     return total;
   }
-
   return (
     <section className="Basket">
       <ul>
         {props.cart.map((item) => (
-          <li>
+          <li key={item.id}>
             {item.productdisplayname} x {item.amount}, {item.amount * item.price},-
+            <button onClick={() => props.removeFromCart(item.id)}>x</button>
           </li>
         ))}
       </ul>
