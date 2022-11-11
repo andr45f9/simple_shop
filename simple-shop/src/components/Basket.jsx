@@ -1,4 +1,12 @@
 function Basket(props) {
+  function getTotal() {
+    let total = 0;
+    props.cart.forEach((item) => {
+      total += item.amount * item.price;
+    });
+    return total;
+  }
+
   return (
     <section className="Basket">
       <ul>
@@ -8,6 +16,7 @@ function Basket(props) {
           </li>
         ))}
       </ul>
+      <h3>Total: {getTotal()} ,-</h3>
       <button>Buy now</button>
     </section>
   );
